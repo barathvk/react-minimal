@@ -1,22 +1,22 @@
-const path = require('path')
+import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 module.exports = {
   entry: path.join(__dirname, '/src/index.tsx'),
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
   ],
   devServer: {
     port: 3000,
     historyApiFallback: true,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
   },
   module: {
     rules: [
@@ -24,35 +24,27 @@ module.exports = {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             cacheDirectory: true,
             babelrc: false,
             presets: [
               [
-                "@babel/preset-env",
-                { targets: { browsers: "last 2 versions" } }
+                '@babel/preset-env',
+                { targets: { browsers: 'last 2 versions' } },
               ],
-              "@babel/preset-typescript",
-              "@babel/preset-react"
+              '@babel/preset-typescript',
+              '@babel/preset-react',
             ],
             plugins: [
-              ["@babel/plugin-transform-runtime", { regenerator: true }],
-              ["@babel/plugin-proposal-decorators", { legacy: true }],
-              ["@babel/plugin-proposal-class-properties", { loose: true }],
-              "@babel/plugin-proposal-optional-chaining",
-              "react-hot-loader/babel"
-            ]
-          }
-        }
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+              ['@babel/plugin-transform-runtime', { regenerator: true }],
+              ['@babel/plugin-proposal-decorators', { legacy: true }],
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
+              '@babel/plugin-proposal-optional-chaining',
+              'react-hot-loader/babel',
+            ],
+          },
+        },
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -69,14 +61,14 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
-          }
-        ]
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: ['.tsx', '.ts', '.js'],
   },
 }
