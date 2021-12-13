@@ -1,8 +1,14 @@
+import { config } from '@/lib/config'
 import React, { useContext, createContext, useState, useEffect } from 'react'
+import {
+  useGoogleLogin,
+  GoogleLoginHookReturnValue,
+} from 'react-use-googlelogin'
 
 interface INuriContext {
   colorScheme: string
   setColorScheme: (scheme: string) => void
+  auth: GoogleLoginHookReturnValue
 }
 
 const createExternalContext = <A extends {} | null>() => {
@@ -14,7 +20,6 @@ const createExternalContext = <A extends {} | null>() => {
       throw new Error('useContext must be inside a Provider with a value')
     return contextValue
   }
-
   return [useCtx, ctx.Provider] as const
 }
 
@@ -29,8 +34,15 @@ export const NuriProvider: React.FC = ({ children }) => {
       localStorage.setItem('colorScheme', colorScheme)
     }
   }, [colorScheme])
+  const auth = useGoogleLogin({
+    uxMode: 'redirect',
+    clientId: config.google.clientId,
+    scope: config.google.scopes.join(' '),
+    hostedDomain: 'bitwala.com',
+    persist: true,
+  })
   return (
-    <InternalProvider value={{ colorScheme, setColorScheme }}>
+    <InternalProvider value={{ auth, colorScheme, setColorScheme }}>
       {children}
     </InternalProvider>
   )
