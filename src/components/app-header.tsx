@@ -9,9 +9,11 @@ import {
   MenuItem,
   MenuList,
   useTheme,
+  Avatar,
+  Text,
 } from '@chakra-ui/react'
 import React from 'react'
-import { FaMoon, FaSun, FaTint } from 'react-icons/fa'
+import { FaMoon, FaSun, FaTint, FaUser } from 'react-icons/fa'
 import { GoPrimitiveDot } from 'react-icons/go'
 
 interface IScheme {
@@ -32,10 +34,6 @@ const schemes: IScheme[] = [
     value: 'nuri-lilac',
   },
   {
-    label: 'Black',
-    value: 'nuri-black',
-  },
-  {
     label: 'Blue',
     value: 'blue',
   },
@@ -43,15 +41,17 @@ const schemes: IScheme[] = [
 
 export const AppHeader: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode()
-  const { setColorScheme } = useNuri()
+  const { setColorScheme, auth } = useNuri()
   const { colors } = useTheme()
   return (
     <Stack direction="row" spacing={2} alignItems="center" padding={2}>
       <Spacer />
+      <Avatar src={auth.googleUser.profileObj.imageUrl} size="2xs" />
+      <Text fontSize="xs">{auth.googleUser.profileObj.givenName}</Text>
       <Menu>
         <MenuButton
           as={IconButton}
-          size="sm"
+          size="xs"
           variant="ghost"
           icon={<FaTint />}
         />
