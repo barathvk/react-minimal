@@ -67,9 +67,9 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
-        backgroundColor: colorMode === 'light' ? 'gray.200' : 'gray.700',
+        backgroundColor: colorMode === 'light' ? 'gray.100' : 'gray.700',
         transition: 'ease-in-out background-color 0.3s',
-        color: colorMode === 'light' ? 'gray.700' : 'gray.300',
+        color: colorMode === 'light' ? 'gray.600' : 'gray.300',
         height: '100vh',
         width: '100vw',
         overflow: 'hidden',
@@ -79,13 +79,15 @@ const styles = {
     }),
   },
 }
-export const theme = extendTheme(
-  withDefaultColorScheme({ colorScheme: 'primary' }),
-  withDefaultSize({ size: 'sm' }),
-  withDefaultProps({
-    defaultProps: ({ colorMode }) => ({
-      color: colorMode === 'light' ? 'gray.700' : 'gray.300',
+export const theme = (colorScheme: string) => {
+  return extendTheme(
+    withDefaultColorScheme({ colorScheme }),
+    withDefaultSize({ size: 'sm' }),
+    withDefaultProps({
+      defaultProps: ({ colorMode }) => ({
+        color: colorMode === 'light' ? 'nuri-black.500' : 'gray.100',
+      }),
     }),
-  }),
-  styles
-)
+    styles
+  )
+}
