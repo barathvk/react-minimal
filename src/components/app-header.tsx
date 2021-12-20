@@ -11,9 +11,10 @@ import {
   useTheme,
   Avatar,
   Text,
+  Tooltip,
 } from '@chakra-ui/react'
 import React from 'react'
-import { FaMoon, FaSun, FaTint, FaUser } from 'react-icons/fa'
+import { FaMoon, FaSignOutAlt, FaSun, FaTint, FaUser } from 'react-icons/fa'
 import { GoPrimitiveDot } from 'react-icons/go'
 
 interface IScheme {
@@ -46,8 +47,21 @@ export const AppHeader: React.FC = () => {
   return (
     <Stack direction="row" spacing={2} alignItems="center" padding={2}>
       <Spacer />
-      <Avatar src={auth.googleUser.profileObj.imageUrl} size="2xs" />
-      <Text fontSize="xs">{auth.googleUser.profileObj.givenName}</Text>
+      <Stack direction="row" spacing={2} alignItems="center">
+        <Avatar src={auth.googleUser.profileObj.imageUrl} size="2xs" />
+        <Text fontSize="xs">{auth.googleUser.profileObj.givenName}</Text>
+        <Tooltip label="Sign out">
+          <IconButton
+            aria-label="sign-out"
+            icon={<FaSignOutAlt />}
+            onClick={async () => {
+              await auth.signOut()
+            }}
+            variant="ghost"
+            size="xs"
+          />
+        </Tooltip>
+      </Stack>
       <Menu>
         <MenuButton
           as={IconButton}

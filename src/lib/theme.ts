@@ -12,7 +12,6 @@ const nuriColors = {
   green: '#6E9E96',
   orange: '#FF8C5A',
 }
-const primaryColor = nuriColors.green
 export const generateShade = (base: string, level: number) => {
   if (level < 500) {
     return chroma(base)
@@ -35,7 +34,6 @@ export const generatePalette = (base: string) => {
 }
 const styles = {
   colors: {
-    primary: generatePalette(primaryColor),
     'nuri-green': generatePalette(nuriColors.green),
     'nuri-orange': generatePalette(nuriColors.orange),
     'nuri-lilac': generatePalette(nuriColors.lilac),
