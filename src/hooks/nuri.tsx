@@ -1,9 +1,10 @@
-import { config } from '@/lib/config'
 import React, { useContext, createContext, useState, useEffect } from 'react'
 import {
   useGoogleLogin,
   GoogleLoginHookReturnValue,
 } from 'react-use-googlelogin'
+
+import { config } from '@/lib/config'
 
 interface INuriContext {
   colorScheme: string

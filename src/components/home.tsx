@@ -1,7 +1,8 @@
-import { useNuri } from '@/hooks/nuri'
 import { Center, Text, useTheme } from '@chakra-ui/react'
 import React from 'react'
 import { Cat } from 'react-kawaii'
+
+import { useNuri } from '@/hooks/nuri'
 
 export const Home: React.FC = () => {
   const { auth, colorScheme } = useNuri()

@@ -4,33 +4,13 @@ import {
   withDefaultProps,
   withDefaultSize,
 } from '@chakra-ui/react'
-import chroma from 'chroma-js'
-const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+import { generatePalette } from 'palette-by-numbers'
+
 const nuriColors = {
   lilac: '#BEAAFF',
   black: '#2C232E',
   green: '#6E9E96',
   orange: '#FF8C5A',
-}
-export const generateShade = (base: string, level: number) => {
-  if (level < 500) {
-    return chroma(base)
-      .brighten((500 - level) / 250)
-      .hex()
-  } else if (level > 500) {
-    return chroma(base)
-      .darken((level - 500) / 250)
-      .hex()
-  } else {
-    return base
-  }
-}
-export const generatePalette = (base: string) => {
-  const palette: { [key: number]: string } = {}
-  levels.forEach((level) => {
-    palette[level] = generateShade(base, level)
-  })
-  return palette
 }
 const styles = {
   colors: {

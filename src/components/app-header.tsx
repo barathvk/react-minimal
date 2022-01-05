@@ -1,4 +1,3 @@
-import { useNuri } from '@/hooks/nuri'
 import {
   Stack,
   IconButton,
@@ -14,8 +13,10 @@ import {
   Tooltip,
 } from '@chakra-ui/react'
 import React from 'react'
-import { FaMoon, FaSignOutAlt, FaSun, FaTint, FaUser } from 'react-icons/fa'
+import { FaMoon, FaSignOutAlt, FaSun, FaTint } from 'react-icons/fa'
 import { GoPrimitiveDot } from 'react-icons/go'
+
+import { useNuri } from '@/hooks/nuri'
 
 interface IScheme {
   label: string

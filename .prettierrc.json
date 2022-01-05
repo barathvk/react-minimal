@@ -4,6 +4,11 @@
   "semi": false,
   "singleQuote": true,
   "importOrder": [
+    "^react$",
+    "^react-icons/(.*)$",
+    "^@chakra-ui/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@c/(.*)$",
     "^@/(.*)$",
     "^[./]"
   ],
