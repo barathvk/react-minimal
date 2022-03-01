@@ -1,5 +1,7 @@
-import { Center, Text, useTheme } from '@chakra-ui/react'
 import React from 'react'
+
+import { Center, Text, useTheme } from '@chakra-ui/react'
+
 import { Cat } from 'react-kawaii'
 
 import { useNuri } from '@/hooks/nuri'

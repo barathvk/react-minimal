@@ -4,6 +4,7 @@ import {
   withDefaultProps,
   withDefaultSize,
 } from '@chakra-ui/react'
+
 import { generatePalette } from 'palette-by-numbers'
 
 const nuriColors = {

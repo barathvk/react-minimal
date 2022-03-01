@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react'
-import { AppHeader } from '@c/app-header'
-import { Routes, Route } from 'react-router-dom'
-import { Home } from '@c/home'
+
 import { ChakraProvider } from '@chakra-ui/react'
+
+import { Routes, Route } from 'react-router-dom'
+
+import { AppHeader } from '@c/app-header'
+import { Home } from '@c/home'
+
 import { useNuri } from '@/hooks/nuri'
 import { theme } from '@/lib/theme'
+
 import { Loading } from './components/loading'
+
 const App: React.FC = () => {
   const { colorScheme, auth } = useNuri()
   useEffect(() => {

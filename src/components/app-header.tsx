@@ -1,3 +1,8 @@
+import React from 'react'
+
+import { FaMoon, FaSignOutAlt, FaSun, FaTint } from 'react-icons/fa'
+import { GoPrimitiveDot } from 'react-icons/go'
+
 import {
   Stack,
   IconButton,
@@ -12,9 +17,6 @@ import {
   Text,
   Tooltip,
 } from '@chakra-ui/react'
-import React from 'react'
-import { FaMoon, FaSignOutAlt, FaSun, FaTint } from 'react-icons/fa'
-import { GoPrimitiveDot } from 'react-icons/go'
 
 import { useNuri } from '@/hooks/nuri'
 
