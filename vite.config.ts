@@ -1,4 +1,4 @@
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import viteFonts from 'vite-plugin-fonts'
 
@@ -6,7 +6,7 @@ import viteFonts from 'vite-plugin-fonts'
 export default defineConfig({
   server: { hmr: { overlay: false } },
   plugins: [
-    reactRefresh(),
+    react(),
     viteFonts({
       google: {
         families: ['Source Sans Pro', 'Inter', 'Codystar'],
