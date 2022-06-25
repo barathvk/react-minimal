@@ -1,19 +1,18 @@
 import React from 'react'
 
-import { ColorModeScript } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './app'
-import { NuriProvider } from './hooks/nuri'
+import { App } from '@/app'
+import { theme } from '@/lib/theme'
 
-render(
+const root = createRoot(document.getElementById('root'))
+root.render(
   <BrowserRouter>
-    <NuriProvider>
-      <ColorModeScript />
+    <ChakraProvider theme={theme}>
       <App />
-    </NuriProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+    </ChakraProvider>
+  </BrowserRouter>
 )

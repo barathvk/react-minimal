@@ -5,28 +5,14 @@ import {
   withDefaultSize,
 } from '@chakra-ui/react'
 
-import { generatePalette } from 'palette-by-numbers'
-
-const nuriColors = {
-  lilac: '#BEAAFF',
-  black: '#2C232E',
-  green: '#6E9E96',
-  orange: '#FF8C5A',
-}
 const styles = {
-  colors: {
-    'nuri-green': generatePalette(nuriColors.green),
-    'nuri-orange': generatePalette(nuriColors.orange),
-    'nuri-lilac': generatePalette(nuriColors.lilac),
-    'nuri-black': generatePalette(nuriColors.black),
-  },
   fonts: {
     body: 'Inter',
     heading: 'Inter',
     mono: 'Menlo',
   },
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false,
     colorScheme: 'red',
   },
@@ -58,15 +44,13 @@ const styles = {
     }),
   },
 }
-export const theme = (colorScheme: string) => {
-  return extendTheme(
-    withDefaultColorScheme({ colorScheme }),
-    withDefaultSize({ size: 'sm' }),
-    withDefaultProps({
-      defaultProps: ({ colorMode }) => ({
-        color: colorMode === 'light' ? 'nuri-black.500' : 'gray.100',
-      }),
+export const theme = extendTheme(
+  withDefaultColorScheme({ colorScheme: 'blue' }),
+  withDefaultSize({ size: 'sm' }),
+  withDefaultProps({
+    defaultProps: ({ colorMode }) => ({
+      color: colorMode === 'light' ? 'nuri-black.500' : 'gray.100',
     }),
-    styles
-  )
-}
+  }),
+  styles
+)
